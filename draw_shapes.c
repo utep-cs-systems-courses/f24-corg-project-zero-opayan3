@@ -24,5 +24,10 @@ void print_triangle(int leftCol, int size)
     for (       ; col <= maxCol; col++) putchar('*');
     putchar('\n');
   }
-}
+}  
+  void print_arrow(int leftCol, int size)
+  {
+     print_triangle(0, size); 
+     print_square(leftCol, leftCol);
+  }
 

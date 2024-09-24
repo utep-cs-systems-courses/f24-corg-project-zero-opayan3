@@ -7,7 +7,20 @@ void print_char_5x7(char c)
   for (char col = 0; col < 5; col++) {
     for (char row = 0; row < 7; row++) {
       unsigned short rowBits = font_5x7[c][col];
-      unsigned short colMask = 1 << (6-row); /* mask to select bit associated with bit */
+      unsigned short colMask = 1 << (6-row); /* mask to select bit associated with bit*/
+      putchar( (rowBits & colMask) ? '*' : ' ');
+    }
+    putchar('\n');
+  }
+  putchar('\n');
+}
+void print_char_8x12(char cc)
+{
+  cc -= 0x40;
+  for (char col = 0; col < 8; col++){
+    for (char row = 0; row < 12; row++){
+      unsigned short rowBits = font_8x12[cc][col];
+      unsigned short colMask = 1 << (11-row);
       putchar( (rowBits & colMask) ? '*' : ' ');
     }
     putchar('\n');
